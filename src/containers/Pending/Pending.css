@@ -1,0 +1,55 @@
+#refreshButton {
+    border : 2px solid orange; 
+    background: orange;
+    color: white;
+    margin-right: 5px;
+    border-radius: 25px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+@keyframes pulsate {
+    0%   {
+        opacity: 0;
+    }
+    50%   {
+       opacity: 100;
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+.loading-div{
+    width: 100%; 
+    height: 75vh; 
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    animation-name: pulsate; 
+    animation: pulsate 1.5s infinite ease-in-out;
+    /* animation-fill-mode: ease-in-out; */
+}
+
+.loading-div h1{
+
+}
+#clockIn{
+    border : 2px solid greenyellow; 
+    background: greenyellow;
+    color: black;
+    border-radius: 25px;
+    width: 80%;
+}
+
+.react-datepicker-popper {
+    transform: translate3d(10%, 50px, 0px);
+}
+
+
+
+hr {
+    border: 1px solid grey;
+}
+

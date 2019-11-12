@@ -1,0 +1,56 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+color: white;
+text-align: center; 
+}
+
+
+.form-control-file, .form-control-range{
+    border: 1px solid white;
+    border-radius: 0px;
+    color: white; 
+    background-color: black;
+}
+
+.form-control {
+    border-radius: 0px;
+    color: white; 
+    background-color: black;
+}
+
+.form-control:focus {
+    color: white; 
+    background-color: black;
+}
+
+.rbt-menu{
+    color: white; 
+    background-color: black;
+}
+
+.rbt-menu a{
+    color: white; 
+}
+
+.rbt-menu a :focus{
+    color: red; 
+}
+
+#submitButton {
+    border : 2px solid greenyellow; 
+    background: transparent;
+    color: greenyellow;
+    border-radius: 25px;
+    align-content: right;
+}
+
+#backButton {
+    border : 2px solid orangered; 
+    background: transparent;
+    color: orangered;
+    margin-right: 5px;
+    border-radius: 25px;
+}

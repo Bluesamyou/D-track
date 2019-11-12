@@ -1,0 +1,58 @@
+h3{
+    color: white;
+    text-align: center; 
+    font-weight: 400%;
+    }
+
+.form-control {
+    border: 1px solid white;
+    border-radius: 5px !important;
+    color: white; 
+    background: #313131;
+}
+
+.form-control:focus {
+    color: white; 
+    background-color:#313131!important;
+
+}
+
+.rbt-menu{
+    color: white; 
+    background-color: none !important;
+}
+
+.rbt-menu a{
+    color: white; 
+}
+
+.rbt-menu a :focus{
+    color: red; 
+}
+
+#licenceNumber {
+    width: 115px;
+    display: none;
+    border : 2px solid red;
+}
+
+#imageUpload {
+    margin-left: 25px;
+    border : 2px solid rgb(105, 231, 189); 
+    background: rgb(105, 231, 189);
+    color: white;
+    border-radius: 25px;
+    text-align: right;
+}
+
+#submitButton {
+    border : 2px solid greenyellow; 
+    background: greenyellow;
+    color: grey;
+    border-radius: 25px;
+    text-align: right;
+}
+
+#buttonGroup{
+    text-align: right;
+}

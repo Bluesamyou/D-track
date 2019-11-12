@@ -1,0 +1,18 @@
+#printButton {
+    background: rgba(255,255,255,0.1);
+}
+
+#reloadButton {
+    width : 10%;
+
+}
+
+#regoSearch{
+    width: 20% !important;
+    margin-right : 10px
+}
+
+input#flatpickr{
+    width : 20%; 
+    margin-right: 10px;
+}
