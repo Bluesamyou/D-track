@@ -1,94 +1,60 @@
-import React, {
-    Component
-} from 'react'
-import {
-    Col,
-    Table,
-    Badge,
-    Button
-} from 'react-bootstrap'
-import Swal from 'sweetalert2'
-import request from 'request'
-import './Dashboard.css'
-import Flatpickr from 'react-flatpickr'
-import 'flatpickr/dist/themes/dark.css'
+import React, { Component } from "react";
+import { Col, Table, Badge, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+import request from "request";
+import "./Dashboard.css";
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/themes/dark.css";
+import fire from "../../firebase/fire";
 
 class Dashboard extends Component {
+  state = {
+    loans: [],
+    filterList: [],
+    show: false
+  };
 
-    state = {
-        loans: [],
-        filterList: [],
-        show: false
-    }
+  componentWillMount() {
+    this.getLoans();
+  }
 
-    componentWillMount() {
-        this.getLoan()
-    }
+  getLoans() {
+    fire
+      .database()
+      .ref("/loans")
+      .on("child_added", snap => {
+        var obj = {
+          customer: {
+            ...snap.val().customer
+          },
+          vehicle: {
+            ...snap.val().vehicle
+          },
+          licenceimg: snap.val().licenceimg,
+          sig: snap.val().sig,
+          timeOut: snap.val().timeOut,
+          timeIn: snap.val().timeIn,
+          key: snap.key
+        };
+        this.setState({ filterList: [...this.state.filterList, obj] });
+        this.setState({ loans: [...this.state.loans, obj] });
+      });
+  }
 
-    getLoan = () => {
-        Swal.fire({
-            title: "<span style='color:white;'>Fetching info ...</span>",
-            background: '#000',
-            onBeforeOpen: () => {
-                Swal.showLoading()
-            }
-        })
-        request({
-            uri: `https://loan-car-ef3d4.firebaseio.com/loans.json`,
-            method: 'GET'
-        }, (err, resp, body) => {
-            var loansObj = JSON.parse(body)
-            var loans = []
-            var keys = Object.keys(loansObj)
-            console.log()
-
-            for (var i = 0; i < keys.length; i++) {
-                try {
-                    var obj = {
-                        customer: {
-                            ...loansObj[keys[i]].customer
-                        },
-                        vehicle: {
-                            ...loansObj[keys[i]].vehicle
-                        },
-                        licenceimg: loansObj[keys[i]].licenceimg,
-                        sig: loansObj[keys[i]].sig,
-                        timeOut: loansObj[keys[i]].timeOut,
-                        timeIn: loansObj[keys[i]].timeIn,
-                        key: keys[i]
-                    }
-                    if (loansObj[keys[i]].vehicle.rego !== undefined &&
-                        loansObj[keys[i]].vehicle.description !== undefined &&
-                        loansObj[keys[i]].customer.firstname !== undefined &&
-                        loansObj[keys[i]].timeOut !== undefined) {
-                        loans.push(obj)
-                    }
-                } catch (error) {
-                    console.log(error)
-                }
-            }
-
-            console.log(loans)
-            this.setState({
-                loans: loans,
-                filterList: loans
-            })
-
-            Swal.close()
-        })
-
-    }
-
-
-
-    printRow = (ref) => {
-        var newWin = window.open(`${this.state.filterList[ref].key}`, 'windowName', 'height=1000,width=700');
-        newWin.document.write(`<h1>Customer Data Summary</h1>
+  printRow = ref => {
+    var newWin = window.open(
+      `${this.state.filterList[ref].key}`,
+      "windowName",
+      "height=1000,width=700"
+    );
+    newWin.document.write(`<h1>Customer Data Summary</h1>
         <h3>Customer</h3>
         <table style="width:100%; border: 2px solid black;">
         <tr>
           <td><strong>Name</strong></td>
-          <td>${this.state.filterList[ref].customer.firstname + " " + this.state.filterList[ref].customer.lastname}</td> 
+          <td>${this.state.filterList[ref].customer.firstname +
+            " " +
+            this.state.filterList[ref].customer.lastname}</td> 
         </tr>
         <tr>
           <td><strong>Address</strong></td>
@@ -100,11 +66,17 @@ class Dashboard extends Component {
         </tr>
         <tr>
             <td><strong>Email</strong></td>
-            <td>${this.state.filterList[ref].customer.email === undefined ? "" :  this.state.filterList[ref].customer.email}</td> 
+            <td>${
+              this.state.filterList[ref].customer.email === undefined
+                ? ""
+                : this.state.filterList[ref].customer.email
+            }</td> 
         </tr>
         <tr>
             <td><strong>Licence</strong></td>
-            <td><img src="${this.state.filterList[ref].licenceimg}" width="200" height="100"></td> 
+            <td><img src="${
+              this.state.filterList[ref].licenceimg
+            }" width="200" height="100"></td> 
         </tr>
       </table>
 
@@ -126,11 +98,21 @@ class Dashboard extends Component {
     <table style="width:100%; border: 2px solid black;">
     <tr>
         <td><strong>Vehicle Time Out</strong></td>
-        <td>${new Date(this.state.filterList[ref].timeOut).toString("dddd, dd MMMM yyyy HH:mm:ss").split('GMT')[0]}</td> 
+        <td>${
+          new Date(this.state.filterList[ref].timeOut)
+            .toString("dddd, dd MMMM yyyy HH:mm:ss")
+            .split("GMT")[0]
+        }</td> 
     </tr>
     <tr>
         <td><strong>Vehicle Time In</strong></td>
-        <td>${this.state.filterList[ref].timeIn === "" ? "Not returned" : new Date(this.state.filterList[ref].timeIn).toString("dddd, dd MMMM yyyy HH:mm:ss").split('GMT')[0]}</td> 
+        <td>${
+          this.state.filterList[ref].timeIn === ""
+            ? "Not returned"
+            : new Date(this.state.filterList[ref].timeIn)
+                .toString("dddd, dd MMMM yyyy HH:mm:ss")
+                .split("GMT")[0]
+        }</td> 
     </tr>
     <tr>
         <td><strong>Agreed to T&Cs</strong></td>
@@ -138,7 +120,9 @@ class Dashboard extends Component {
     </tr>
     <tr>
       <td><strong>Customer Signature</strong></td>
-      <td><img src=${this.state.filterList[ref].sig} width="200" height="100"/></td> 
+      <td><img src=${
+        this.state.filterList[ref].sig
+      } width="200" height="100"/></td> 
     </tr>
 
   </table>
@@ -166,102 +150,148 @@ class Dashboard extends Component {
   </ol>
 
   <span style='color:red; font-weight: bold;'>Note: Insurance excess of $2,000 applies</span>
-  </div>`)
+  </div>`);
+  };
 
-    }
-
-    searchByRego = (e) => {
-        console.log(e.target.value)
-        var tempArray = []
-        if (e.target.value === "") {
-            this.setState({
-                filterList: this.state.loans
-            })
-        } else {
-            for (var i = 0; i < this.state.filterList.length; i++) {
-                if (this.state.filterList[i].vehicle.rego.toLowerCase().includes(e.target.value.toLowerCase())) {
-                    tempArray.push(this.state.filterList[i])
-                }
-            }
-            this.setState({
-                filterList: tempArray
-            })
+  searchByRego = e => {
+    console.log(e.target.value);
+    var tempArray = [];
+    if (e.target.value === "") {
+      this.setState({
+        filterList: this.state.loans
+      });
+    } else {
+      for (var i = 0; i < this.state.filterList.length; i++) {
+        if (
+          this.state.filterList[i].vehicle.rego
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase())
+        ) {
+          tempArray.push(this.state.filterList[i]);
         }
+      }
+      this.setState({
+        filterList: tempArray
+      });
     }
+  };
 
-    outTimeSearch = (time) => {
-        console.log(time.length)
-        if (time.length === 2) {
-            var tempArray = []
-            for (var i = 0; i < this.state.loans.length; i++) {
-                if (this.state.loans[i].timeOut !== undefined) {
-                    var startDate = new Date(time[0])
-                    var endDate = new Date(time[1])
-                    var outDate = new Date(this.state.loans[i].timeOut)
-                    var inDate = new Date(this.state.loans[i].timeIn)
-                    // eslint-disable-next-line
-                    if (outDate.getDate() >= startDate.getDate() && outDate.getDate() <= endDate.getDate() ||
-                        inDate.getDate() >= startDate.getDate() && inDate.getDate() <= endDate.getDate()) {
-                        tempArray.push(this.state.loans[i])
-                    }
-                }
-            }
+  // outTimeSearch = time => {
+  //   console.log(time.length);
+  //   if (time.length === 2) {
+  //     var tempArray = [];
+  //     for (var i = 0; i < this.state.loans.length; i++) {
+  //       if (this.state.loans[i].timeOut !== undefined) {
+  //         var startDate = new Date(time[0]);
+  //         var endDate = new Date(time[1]);
+  //         var outDate = new Date(this.state.loans[i].timeOut);
+  //         var inDate = new Date(this.state.loans[i].timeIn);
+  //         // eslint-disable-next-line
+  //         if (
+  //           (outDate.getDate() >= startDate.getDate() &&
+  //             outDate.getDate() <= endDate.getDate()) ||
+  //           (inDate.getDate() >= startDate.getDate() &&
+  //             inDate.getDate() <= endDate.getDate())
+  //         ) {
+  //           tempArray.push(this.state.loans[i]);
+  //         }
+  //       }
+  //     }
 
-            this.setState({
-                filterList: tempArray
-            })
-        }
+  //     this.setState({
+  //       filterList: tempArray
+  //     });
+  //   }
+  // };
 
+  render() {
+    return (
+      <Col>
+        {/* <Flatpickr
+          id="flatpickr"
+          placeholder="Out Time"
+          value={this.state.time}
+          onChange={date => this.outTimeSearch(date)}
+          options={{ disableMobile: true, mode: "range" }}
+        /> */}
+        <input
+          placeholder="Registration"
+          id="regoSearch"
+          type="text"
+          onChange={this.searchByRego}
+        />
+        <Button
+          xs={2}
+          id="reloadButton"
+          onClick={this.getLoan}
+          variant="success"
+          type=""
+        >
+          <i class="fas fa-sync-alt"></i>
+        </Button>
 
-    }
-
-    
-    render() {
-        return (
-            
-            <Col>
-                        <Flatpickr
-                        id="flatpickr"
-                        placeholder="Out Time"
-                        value={this.state.time}
-                        onChange={(date) => this.outTimeSearch(date)}
-                        options={{disableMobile : true, mode : "range"}}/>
-                        <input placeholder="Registration" id="regoSearch" type="text" onChange={this.searchByRego}/>
-                        <Button xs={2} id="reloadButton" onClick={this.getLoan} variant="success" type=""><i class="fas fa-sync-alt"></i></Button> 
-
-                <Table striped bordered hover variant="dark" size="sm">
-                    <thead>
-                        <tr>
-                        <th>Registration</th>
-                        <th>Customer Name</th>
-                        <th>Out Date</th>
-                        <th>In Date</th>
-                        <th>Status</th>
-                        <th>Print</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.filterList.map((loans, index) => (
-                            <tr>
-                            <td>{loans.vehicle.rego}</td>
-                            <td>{loans.customer.firstname + " " + loans.customer.lastname }</td>
-                            <td>{new Date(loans.timeOut).toString("dddd, dd MMMM yyyy HH:mm:ss").split('GMT')[0]}</td>
-                            <td>{loans.timeIn === "" ? null : new Date(loans.timeIn).toString("dddd, dd MMMM yyyy HH:mm:ss").split('GMT')[0]}</td>
-                            <td>{loans.timeIn === "" ? 
-                                    <Badge variant="warning">On Loan</Badge> :
-                                    <Badge variant="success">Returned</Badge>}</td>
-                            <td>
-                                <Button id="printButton" variant="danger" onClick={() => this.printRow(index)}>
-                                    <i class="fas fa-print"></i>
-                                </Button>
-                            </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                    </Table>
-            </Col>
-        )
-    }
+        <Table
+          striped
+          bordered
+          hover
+          variant="dark"
+          size="sm"
+          className="dashboard-table"
+        >
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Registration</th>
+              <th>Out Date</th>
+              <th>In Date</th>
+              <th>Status</th>
+              <th>Print</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.filterList.map((loans, index) => (
+              <tr>
+                <td>
+                  {loans.customer.firstname + " " + loans.customer.lastname}
+                </td>
+                <td>{loans.vehicle.rego}</td>
+                <td>
+                  {
+                    new Date(loans.timeOut)
+                      .toString("dddd, dd MMMM yyyy HH:mm:ss")
+                      .split("GMT")[0]
+                  }
+                </td>
+                <td>
+                  {loans.timeIn === ""
+                    ? null
+                    : new Date(loans.timeIn)
+                        .toString("dddd, dd MMMM yyyy HH:mm:ss")
+                        .split("GMT")[0]}
+                </td>
+                <td>
+                  {loans.timeIn === "" ? (
+                    <Badge variant="warning">On Loan</Badge>
+                  ) : (
+                    <Badge variant="success">Returned</Badge>
+                  )}
+                </td>
+                <td>
+                  <Button
+                    id="printButton"
+                    variant="danger"
+                    onClick={() => this.printRow(index)}
+                  >
+                    <i class="fas fa-print"></i>
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Col>
+    );
+  }
 }
 
-export default Dashboard
+export default Dashboard;

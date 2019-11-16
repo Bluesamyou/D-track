@@ -1,200 +1,194 @@
-
 @font-face {
-    font-family: numberPlate;
-    src: url('./GlNummernschildEng-5m3V.otf');
-  }
-
-.card-container{
-    margin: 20px;
-    margin-left: 10px; 
-    margin-right: 10px;
-    display: grid;
-    justify-items: center;
-    align-items: center;
+  font-family: numberPlate;
+  src: url("./GlNummernschildEng-5m3V.otf");
 }
 
-.vehicle-card{
-    padding: 10px;
-    text-align: center;
-    width:100%;
-    background: rgba(0,0,0,0.4);
-    color: white;
-    border-radius: 10px;
+.card-container {
+  margin: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.vehicle-card {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 10px;
 }
 
 .rego-container {
-    padding: 5px; 
-    background:rgb(26, 26, 26);
-    width : 50%; 
-    margin: 10px;
-    margin-left: 25%;
-    border-radius: 5px;
+  padding: 5px;
+  background: rgb(26, 26, 26);
+  width: 50%;
+  margin: 10px;
+  margin-left: 25%;
+  border-radius: 5px;
 }
 
 .rego-inner {
-    font-family: numberPlate, sans-serif;
-    font-size: 200%;
-    border: 2px solid white;
-    border-radius: 5px;
-    padding : 0px;
+  font-family: numberPlate, sans-serif;
+  font-size: 200%;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0px;
 }
 
-.rego-table, tr, td{
-    font-size: 90%;
-    width: 90%;
-    margin-left: 5%;
-    background: rgba(255,255,255,0.01);
-    border: 1px solid black;
+.rego-table,
+tr,
+td {
+  font-size: 90%;
+  width: 90%;
+  margin-left: 5%;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid black;
 }
 
-.rego-table td{
-    padding: 10px;
+.rego-table td {
+  padding: 10px;
 }
 
-.form-control-file, .form-control-range{
-    border: 1px solid white;
-    border-radius: 15px;
-    color: white; 
-    background-color: black;
+.form-control-file,
+.form-control-range {
+  border: 1px solid white;
+  border-radius: 15px;
+  color: white;
+  background-color: black;
 }
-
 
 .form-control:focus {
-    color: white; 
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 
-.rbt-menu{
-    color: white; 
-    background-color: black;
+.rbt-menu {
+  color: white;
+  background-color: black;
 }
 
-.rbt-menu a{
-    color: white; 
+.rbt-menu a {
+  color: white;
 }
 
-.rbt-menu a :focus{
-    color: red; 
+.rbt-menu a :focus {
+  color: red;
 }
 
 #container {
-    display: grid; 
-    align-items: center; 
-    align-content: center;
-    background : rgba(0,0,0,0.4);
-    border-radius : 10px;
-    height :250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: grid;
+  align-items: center;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  height: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
-
 
 #submitButton {
-    border : 2px solid greenyellow; 
-    background: greenyellow;
-    color: black;
-    border-radius: 25px;
-    text-align: right;
+  border: 2px solid greenyellow;
+  background: greenyellow;
+  color: black;
+  border-radius: 25px;
+  text-align: right;
 }
 
-
 #backButton {
-    border : 2px solid orangered; 
-    background: orangered;
-    color: white;
-    margin-right: 5px;
-    border-radius: 25px;
+  border: 2px solid orangered;
+  background: orangered;
+  color: white;
+  margin-right: 5px;
+  border-radius: 25px;
 }
 
 #searchRego {
-    border : 2px solid orange; 
-    background: orange;
-    color: white;
-    margin-right: 5px;
-    border-radius: 25px;
+  border: 2px solid orange;
+  background: orange;
+  color: white;
+  margin-right: 5px;
+  border-radius: 25px;
 }
 
 #submitVehicle {
-    border : 2px solid greenyellow; 
-    background: transparent;
-    color: greenyellow;
-    border-radius: 25px;
-    align-content: right !important;
+  border: 2px solid greenyellow;
+  background: transparent;
+  color: greenyellow;
+  border-radius: 25px;
+  align-content: right !important;
 }
 
 #manualEntry {
-    border : 2px solid rebeccapurple; 
-    background: rebeccapurple;
-    color: white;
-    border-radius: 25px;
-    align-content: right !important;
+  border: 2px solid rebeccapurple;
+  background: rebeccapurple;
+  color: white;
+  border-radius: 25px;
+  align-content: right !important;
 }
 
 .card-body {
-    text-align: center;
+  text-align: center;
 }
 
-.card{
-    margin-top: 10%;
-    margin-bottom: 10%;
-    border: 3px solid white;
-    border-radius: 25px;
-    background: black;
+.card {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border: 3px solid white;
+  border-radius: 25px;
+  background: black;
 }
 
 .card-title {
-    text-align: center;
+  text-align: center;
 }
 
-.list-group-item{
-    background: black;
-    text-align: center;
+.list-group-item {
+  background: black;
+  text-align: center;
 }
 
 #signaturePad {
-    border: 2px solid white;
+  border: 2px solid white;
 }
 
-#ripple{
-    padding-top: 25%;
-    padding-left: 22%;
+#ripple {
+  padding-top: 25%;
+  padding-left: 22%;
 }
 
 .lds-ripple {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-    align-content: center;
-    
-  }
-  .lds-ripple div {
-      
-    position: absolute;
-    border: 4px solid orange;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  align-content: center;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid orange;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -1s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 100px;
+    left: 100px;
+    width: 0;
+    height: 0;
     opacity: 1;
-    border-radius: 50%;
-    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
-  .lds-ripple div:nth-child(2) {
-    
-    animation-delay: -1s;
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 200px;
+    height: 200px;
+    opacity: 0;
   }
-  @keyframes lds-ripple {
-    0% {
-      top: 100px;
-      left: 100px;
-      width: 0;
-      height: 0;
-      opacity: 1;
-    }
-    100% {
-      top: -1px;
-      left: -1px;
-      width: 200px;
-      height: 200px;
-      opacity: 0;
-    }
-  }
-  
+}

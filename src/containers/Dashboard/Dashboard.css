@@ -1,18 +1,33 @@
 #printButton {
-    background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #reloadButton {
-    width : 10%;
-
+  width: 10%;
 }
 
-#regoSearch{
-    width: 20% !important;
-    margin-right : 10px
+#regoSearch {
+  width: 20% !important;
+  margin-right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  color: white;
 }
 
-input#flatpickr{
-    width : 20%; 
-    margin-right: 10px;
+input#flatpickr {
+  width: 20%;
+  margin-right: 10px;
+}
+
+.dashboard-table {
+  margin-top: 20px;
+}
+
+.dashboard-table,
+tr {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid black;
 }
