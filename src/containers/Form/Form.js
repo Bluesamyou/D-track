@@ -123,21 +123,23 @@ class Form extends Component {
     });
   };
   getAddress = value => {
-    request(
-      {
-        method: "GET",
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
-          "Content-Type": "application/x-www-form-urlencoded"
+    if (value.length % 3 === 0) {
+      request(
+        {
+          method: "GET",
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: `https://loan-car-dashboard.herokuapp.com/api/addressFetch/?q=${value}`
         },
-        url: `https://loan-car-dashboard.herokuapp.com/api/addressFetch/?q=${value}`
-      },
-      (err, resp, body) => {
-        console.log(body);
-        this.setState({ addresses: [" ", ...JSON.parse(body)] });
-      }
-    );
+        (err, resp, body) => {
+          console.log(body);
+          this.setState({ addresses: [" ", ...JSON.parse(body)] });
+        }
+      );
+    }
   };
 
   searchRego = () => {
@@ -380,6 +382,7 @@ class Form extends Component {
       <div>
         {this.state.step === 1 ? (
           <CustomerForm
+            checkUpload={this.state.imageUrl}
             addressFetch={this.getAddress}
             autofill={this.state.addresses}
             setAddress={this.setAddress}

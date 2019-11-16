@@ -50,7 +50,7 @@ const CustomerForm = props => (
             props.addressFetch(value);
           }}
           options={props.autofill}
-          defaultInputValue={props.placeholder.address}
+          // defaultInputValue={props.placeholder.address}
         />
       </Form.Group>
 
@@ -91,8 +91,20 @@ const CustomerForm = props => (
           onProgress={props.handleProgess}
           // onChange={props.verify}
         />
-        <Button id="imageUpload" onClick={uploadImage}>
-          <i class="fas fa-camera"></i>
+        <Button
+          id="imageUpload"
+          style={
+            props.checkUpload
+              ? { background: "rgb(105, 231, 189)" }
+              : { background: "none" }
+          }
+          onClick={uploadImage}
+        >
+          {props.checkUpload ? (
+            <i class="fas fa-check"></i>
+          ) : (
+            <i class="fas fa-camera"></i>
+          )}
         </Button>
       </Form.Group>
 
