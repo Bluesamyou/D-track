@@ -83,6 +83,7 @@ const CustomerForm = props => (
         </Form.Label>
         <FileUploader
           id="licenceNumber"
+          type="file"
           accept="image/*"
           storageRef={firebase.storage().ref("Licenses")}
           name="images"
