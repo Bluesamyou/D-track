@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Col, Table, Badge, Button } from "react-bootstrap";
-import Swal from "sweetalert2";
-import request from "request";
 import "./Dashboard.css";
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/dark.css";
 import fire from "../../firebase/fire";
 
 class Dashboard extends Component {
