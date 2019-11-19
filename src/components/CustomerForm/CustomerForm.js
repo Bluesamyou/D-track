@@ -49,7 +49,7 @@ const CustomerForm = props => (
           onInputChange={value => {
             props.addressFetch(value);
           }}
-          options={props.autofill}
+          options={[...props.autofill]}
           // defaultInputValue={props.placeholder.address}
         />
       </Form.Group>
@@ -120,6 +120,7 @@ const CustomerForm = props => (
     </Form>
     <Col id="buttonGroup" xs={12}>
       <Button
+        style={{ marginBottom: "20px" }}
         id="submitButton"
         variant="success"
         type="button"

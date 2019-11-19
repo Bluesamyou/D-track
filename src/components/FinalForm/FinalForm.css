@@ -1,53 +1,53 @@
-.flatpickr-input{
-    border: none;
-    padding : 10px;
-    color: white !important;
-    font-weight: 800;
-    background: rgba(0,0,0,0.4);
-    margin: 10px;
-    text-align: center;
-    border: 25px;
-    
+.flatpickr-input {
+  border: none;
+  padding: 10px;
+  color: white !important;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.4);
+  margin: 10px;
+  text-align: center;
+  border: 25px;
 }
 
-.flatpickr-months, .flatpickr-innerContainer,.flatpickr-time{
-    background: black;
+.flatpickr-months,
+.flatpickr-innerContainer,
+.flatpickr-time {
+  background: black;
 }
 
-
-.flatpickr-current-month{
-    color: #81CBC4 !important;
+.flatpickr-current-month {
+  color: #81cbc4 !important;
 }
 .react-datepicker__input-container {
-    width: 100%;
+  width: 100%;
 }
 
-.swal2-confirm{
-    color: black !important; 
-    background : greenyellow !important;
-    border-radius: 25px !important;
-    border : 2px  solid greenyellow !important;
-    box-shadow: none !important;
+.swal2-confirm {
+  color: black !important;
+  background: greenyellow !important;
+  border-radius: 25px !important;
+  border: 2px solid greenyellow !important;
+  box-shadow: none !important;
 }
 
-.swal2-cancel{
-    color: white !important; 
-    background : orangered !important;
-    border-radius: 25px !important;
-    border : 2px  solid orangered !important;
+.swal2-cancel {
+  color: white !important;
+  background: orangered !important;
+  border-radius: 25px !important;
+  border: 2px solid orangered !important;
 }
 
 #signaturePad {
-    border: 2px solid white;
-    border-radius : 10px;
-    margin-bottom : 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 480px;
+  display: grid;
 }
 
 #finalSubmit {
-    border : 2px solid greenyellow; 
-    background: greenyellow;
-    color: rgb(61, 61, 61);
-    border-radius: 25px;
+  border: 2px solid greenyellow;
+  background: greenyellow;
+  color: rgb(61, 61, 61);
+  border-radius: 25px;
 }
-
-
