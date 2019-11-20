@@ -204,28 +204,37 @@ const VehicleForm = props => (
         </div>
       </div>
     ) : props.displayCard ? (
-      <div class="card-container">
-        <div class="vehicle-card">
-          <div class="rego-container">
-            <div class="rego-inner">{props.vehicleDetails.rego}</div>
+      !props.vehicleDetails.rego ? (
+        <Col id="container">
+          <h5>
+            Unable to fetch vehicle information. Please try again or enter the
+            vehicle details manually
+          </h5>
+        </Col>
+      ) : (
+        <div class="card-container">
+          <div class="vehicle-card">
+            <div class="rego-container">
+              <div class="rego-inner">{props.vehicleDetails.rego}</div>
+            </div>
+            <h5>{props.vehicleDetails.description}</h5>
+            <table>
+              <tr>
+                <th>Engine</th>
+                <td>{props.vehicleDetails.engine}</td>
+              </tr>
+              <tr>
+                <th>Vin Number</th>
+                <td>{props.vehicleDetails.vin}</td>
+              </tr>
+              <tr>
+                <th>Rego Expiry</th>
+                <td>{props.vehicleDetails.exp}</td>
+              </tr>
+            </table>
           </div>
-          <h5>{props.vehicleDetails.description}</h5>
-          <table>
-            <tr>
-              <th>Engine</th>
-              <td>{props.vehicleDetails.engine}</td>
-            </tr>
-            <tr>
-              <th>Vin Number</th>
-              <td>{props.vehicleDetails.vin}</td>
-            </tr>
-            <tr>
-              <th>Rego Expiry</th>
-              <td>{props.vehicleDetails.exp}</td>
-            </tr>
-          </table>
         </div>
-      </div>
+      )
     ) : props.manual ? (
       <Col>
         <Form>

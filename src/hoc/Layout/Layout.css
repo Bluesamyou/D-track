@@ -26,18 +26,28 @@
   border: 2px solid orangered;
   background: orangered;
   border-radius: 25px;
-  padding: 5px;
   margin-top: 8px;
   padding: 5px 10px;
-  width: 40%;
-  margin-left: 40%;
-  margin-right: 40px;
   text-align: center;
 }
 
-@media only screen and (max-width: 768px) {
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px 10px;
+  margin: 0 10px;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+/* @media only screen and (max-width: 768px) {
   #logout {
     margin-left: 30%;
     margin-right: 30%;
   }
-}
+} */
