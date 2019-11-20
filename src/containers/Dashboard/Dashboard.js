@@ -7,7 +7,7 @@ class Dashboard extends Component {
   state = {
     loans: [],
     filterList: [],
-    show: false
+    show: true
   };
 
   componentWillMount() {
@@ -130,7 +130,8 @@ class Dashboard extends Component {
     var tempArray = [];
     if (e.target.value === "") {
       this.setState({
-        filterList: this.state.loans
+        filterList: this.state.loans,
+        show: false
       });
     } else {
       for (var i = 0; i < this.state.filterList.length; i++) {
@@ -181,13 +182,13 @@ class Dashboard extends Component {
       <Col>
         <input
           placeholder="Registration"
-          id="regoSearch"
+          className="regoSearch"
           type="text"
           onChange={this.searchByRego}
         />
         <Button
           xs={2}
-          id="reloadButton"
+          className="reloadButton"
           onClick={this.getLoan}
           variant="success"
           type=""
@@ -195,7 +196,7 @@ class Dashboard extends Component {
           <i class="fas fa-sync-alt"></i>
         </Button>
 
-        {this.state.filterList.length === 0 ? (
+        {this.state.loans.length === 0 ? (
           <div className="loading-div">
             <h1>Loading loan history</h1>
           </div>

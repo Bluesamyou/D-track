@@ -2,14 +2,14 @@
   background: none;
 }
 
-#reloadButton {
+.reloadButton {
   border-radius: 100%;
   color: black;
   background: greenyellow;
   border: none;
 }
 
-#regoSearch {
+.regoSearch {
   width: 40% !important;
   margin-right: 10px;
   background: rgba(0, 0, 0, 0.5);
