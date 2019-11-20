@@ -1,5 +1,5 @@
-#printButton {
-  background: rgba(255, 255, 255, 0.1);
+.printButton {
+  background: none;
 }
 
 #reloadButton {

@@ -308,29 +308,16 @@ class Form extends Component {
       textColor: "#FFF",
       html: `<div style='text-align:left; color: white;'>
             <ol/>
-            <li> To drive the vehicle in a skillful, lawful and careful manner, remaining within the state of Victoria. </li>
-
-            <li>Will not do anything to invalidate the insurance in respect of the vehicle and to indemnify Genesis Motors Isuzu UTE of any loss (including Legal cost) arising from any breach of the obligations herein or any damage suffered by any party as a reslit of an incident involving the vehicle which is not the subject of the insurance coverage provided herein.</li>
-
-            <li>Not to drive the vehicle under the influence of alcohol or drugs.</li>
-
-            <li>To report any damage, complete any claim form and provide assistance with any claim as requested.</li>
-
-            <li>Not to repair the vehicle or create any lien over it.</li>
-            <li>Not to smoke in or transport animals of any nature in the vehicle.</li>
-            <li>To ensure that the vehicle is parked safely with keys removed.</li>
-            <li>To reimburse Genesis Motors Isuzu UTE in respect of any loss advertising from a breach of the customer’s obligation.</li>
-            <li><strong><span style='color:red;'>To pay all road tolls, parking infringements and all traffic violations, or similar charges in relation to the borrowers use of the vehicle and to advice Genesis Motors Isuzu UTE of any such cost incurred and to immediately upon demand pay any toll or charge notified to the customer by Genesis Motors Isuzu UTE (an administration fees of $50 shall apply if the toll or charge in not paid within seven (7) days of demand)</span></strong></li>
-            <li>To return the vehicle immediately upon request and permit recovery of the vehicle at any time by Genesis Motors Isuzu UTE  for which purpose Genesis Motors Isuzu UTE may enter any premises upon which the vehicle is located(forcibly if necessary).</li>
-            <li>That in respect of any accidental loss or damage caused by the customer’s use of the vehicle whilst on loan to the customer, to pay  immediately  upon demand the lesser of the cost of repair of such damage or the insurance excess except (i) in the case of the breach of  this agreement in which case the borrower shall be liable for all damages to the vehicle and to any third party property however caused; and (ii) except in the event were the customer is able to claim under another insurance policy which they must do in the first instance.</li>
-            <li>That the insurance as stated herein is the totality of the insurance offered and is subject to the terms of Genesis Motors Isuzu UTE’s insurance policy, a copy of which is available upon request.</li>
-            <li>That if there is more than one customer liability shall be joint and several</li>
-            <li>That Genesis Motors Isuzu UTE is not liable for any loss or damage suffered by customer or any other person arising out of or in connection with the use of the vehicle (subject to any limitations imposed by the Trade Practices Act)</li>
-            <li>Not to use the Vehicle for carrying loads or other than on sealed roads.</li>
-            <li>That Genesis Motors Isuzu UTE is not responsible for any property stolen from or damaged in the vehicle either during the period of loan or after return of the vehicle to Genesis Motors Isuzu UTE.</li>
-            </ol>
-
-            <span style='color:red; font-weight: bold;'>Note: Insurance excess of $2,000 applies</span>
+            <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            <li> Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.</li>
+            <li>Sed augue lacus viverra vitae. </li>
+            <li> Nisl nisi scelerisque eu ultrices vitae.</li>
+            <li>Diam donec adipiscing tristique risus nec feugiat in fermentum posuere. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Egestas quis ipsum suspendisse ultrices gravida dictum. </li>
+            <li>In tellus integer feugiat scelerisque varius morbi enim nunc faucibus.</li>
+            <li> Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada.</li>
+            <li><strong><span style='color:red;'>Vitae auctor eu augue ut. Ullamcorper dignissim cras tincidunt lobortis.</span></strong></li>
+            <span style='color:red; font-weight: bold;'>Note:  Egestas sed tempus urna et pharetra pharetra massa massa</span>
             </div>`,
 
       showCloseButton: false,
